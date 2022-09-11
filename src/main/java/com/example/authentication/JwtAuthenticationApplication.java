@@ -17,6 +17,7 @@ public class JwtAuthenticationApplication {
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
+	// Adding below two user in H2 Database
 	@Bean
 	CommandLineRunner run(UserService userService ){
 		return args ->

@@ -19,11 +19,13 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    //List's the users persisted in the H2 Database
     @GetMapping("/list")
     public ResponseEntity<List<User>> fetchAll(){
        return new ResponseEntity(userService.selectAll(),HttpStatus.OK);
     }
 
+    //Persists the User to the H2 Database
     @PostMapping("/save")
     public ResponseEntity<User> create(@RequestBody User user){
         User persistedUser  = userService.saveUser(user);
@@ -33,17 +35,4 @@ public class UserController {
       return  ResponseEntity.created(uri).body(persistedUser);
     }
 
-  /*  @PostMapping("/saveAll")
-    public ResponseEntity<List<User>> create(@RequestBody List<User> users){
-        List<User> persistedUsers  = userService.saveUsers(users);
-        URI uri = URI
-                .create(ServletUriComponentsBuilder.fromCurrentContextPath()
-                        .path("/api/user/create").toUriString());
-        return  ResponseEntity.created(uri).body(persistedUsers);
-    }*/
-
-    @GetMapping("/welcome")
-    public ResponseEntity<String> welcome(){
-        return new ResponseEntity("Welcome USer", HttpStatus.OK);
-    }
 }
