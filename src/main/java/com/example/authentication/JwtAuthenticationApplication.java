@@ -1,7 +1,6 @@
 package com.example.authentication;
 
 import com.example.authentication.entity.User;
-import com.example.authentication.repository.UserRepository;
 import com.example.authentication.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
